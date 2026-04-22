@@ -31,7 +31,7 @@ const WorkerDashboard = () => {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/api/worker/my-collections');
+      const res = await axios.get('https://ssf-be.vercel.app/api/worker/my-collections');
       setCollectionsHistory(res.data);
     } catch (err) {
       console.error(err);
@@ -40,7 +40,7 @@ const WorkerDashboard = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/api/worker/customers');
+      const res = await axios.get('https://ssf-be.vercel.app/api/worker/customers');
       setCustomers(res.data);
     } catch (err) {
       console.error(err);
@@ -51,7 +51,7 @@ const WorkerDashboard = () => {
     e.preventDefault();
     const loading = toast.loading('Recording collection...');
     try {
-      await axios.post('http://localhost:5001/api/worker/collect', {
+      await axios.post('https://ssf-be.vercel.app/api/worker/collect', {
         customer_id: selectedCustomer.id,
         amount,
         password

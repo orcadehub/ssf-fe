@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/login', { username, password });
+      const res = await axios.post('https://ssf-be.vercel.app/api/auth/login', { username, password });
       const { token, user } = res.data;
       
       localStorage.setItem('token', token);

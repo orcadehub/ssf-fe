@@ -41,13 +41,13 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     try {
       if (tab === 0) {
-        const res = await axios.get('http://localhost:5001/api/admin/workers');
+        const res = await axios.get('https://ssf-be.vercel.app/api/admin/workers');
         setWorkers(res.data);
       } else if (tab === 1) {
-        const res = await axios.get('http://localhost:5001/api/admin/customers');
+        const res = await axios.get('https://ssf-be.vercel.app/api/admin/customers');
         setCustomers(res.data);
       } else if (tab === 2) {
-        const res = await axios.get('http://localhost:5001/api/worker/collections');
+        const res = await axios.get('https://ssf-be.vercel.app/api/worker/collections');
         setCollections(res.data);
       }
     } catch (err) {
@@ -59,7 +59,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     const loading = toast.loading('Creating worker...');
     try {
-      await axios.post('http://localhost:5001/api/admin/workers', workerForm);
+      await axios.post('https://ssf-be.vercel.app/api/admin/workers', workerForm);
       toast.success('Worker created successfully', { id: loading });
       setOpenWorkerModal(false);
       setWorkerForm({ username: '', password: '' });
@@ -73,7 +73,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     const loading = toast.loading('Creating customer...');
     try {
-      await axios.post('http://localhost:5001/api/admin/customers', customerForm);
+      await axios.post('https://ssf-be.vercel.app/api/admin/customers', customerForm);
       toast.success('Customer created successfully', { id: loading });
       setOpenCustomerModal(false);
       setCustomerForm({ 
